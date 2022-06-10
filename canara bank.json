@@ -1,0 +1,94 @@
+{
+  "intents": [
+    {
+      "tag": "online banking",
+      "pattern": [
+        "what is online banking,who can use this features,what can I do with Online banking,Online banking means?,Online"
+      ],
+      "responses": [
+        "Online Banking is a tool that allows you to use a personal computer with an Internet connection to conduct your banking online,All individual customers are used this features,You can view account balances and transaction history, and transfer money between CSB accounts. You can also sign up for free Online Bill Payment that allows you to pay your bills quickly and easily!"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "login",
+      "pattern": [
+        "How do I login,my db online banking login id is not enabled.can I login or not,can I login to the pp if I had never used dB online banking,How do I login"
+      ],
+      "responses": [
+        "You can login to app by using your db online banking login id or password,only active db online banking users can use my bank in India.you can activate your db online banking access using forgot password facility,yes,you can login to the app pro your db online banking login id/password are active,Tap on our bank app icon in your phone.click login and ! enter your db online banking login id/password "
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Supported devices",
+      "pattern": [
+        "what devices are supported,which types of OS are supported"
+      ],
+      "responses": [
+        "Apple iPhones, iPads with iOS version 9.0,Jelly bean(4.3.1+),kit_kat(4.4-4.4.4)lollipop(5.0-5.1.1),Marshmallow(6.0-6.0.1)&Nougat(7.0-7.1.2)."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "login/logout type changes",
+      "pattern": [
+        "How can I change our login type,How can I logout"
+      ],
+      "responses": [
+        "Select settings from the hamburger menu.hamburger within our mobile app & click login type,you will need to logout,close the app & relaunch if before the changes I'll take effect"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "via text messages",
+      "pattern": [
+        "Can,I receive alerts via text messages? ,How will I get the alerts,is it safe?"
+      ],
+      "responses": [
+        "Yes, alerts can be et up through our mobile app, Alerts will be send in via text messages or email,yes,it is safe"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Security",
+      "pattern": [
+        "if I forgot my username or password,an I reset it?,How can I used it?,Is t possible for ipad,what the the procedure to reset the password in ipad"
+      ],
+      "responses": [
+        "yes it is possible,from the landing page click help,when the help window pulls up,use the drop down box to select either orgot username/forgot or reset the password,yes,ofcourse,From the landing page click information & select user help when the help window pulls up,use the drop down box to select either forgot username/forgot or reset password"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "bill pay ",
+      "pattern": [
+        "can I pay bills through the mobile app?,whtat are the procedures?,If I some details orelse whatever ,can I do any changes?,Is it need ,if we have already using bill pay?,How do I create a new payee,can I expedit a payment?"
+      ],
+      "responses": [
+        "yes,but paying your bills has never been easier,you will need to setup bill pay through your online banking.if it has not been setup you will get an error from our app that states , SSN s invalid for consumer .once bill pay s established through online banking you have to go back to it,you can DD,change or remove payees by selecting pay bills from the landing page or the hamburger menu,There is  no need to set anything up,select pay bills & click add a payee,No,be sure to review the delivery dater when asking your payment through our mobile app to make sure your payment will active on time"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "External Transfers",
+      "pattern": [
+        "what is an External Transfer?,how  can I send an External Transfer from the mobile app?,how much money can I send with External transfer?"
+      ],
+      "responses": [
+        "It allows you to request money from your account at another institution to your first savings bank account or to send money from your account at first savings bank to your account at another institution.you can also add or remove accounts,view transfer history & cancel PENDING transfers.if you select standard processing this is completed at NO cost to you!for express transfers here is a $5.00 per transaction fees,select External transfer from the landing page or the humburger menu and select Schedule transfer,you can send my amount between $50.00 & $1,000.00 per transaction for a max of 3 transaction per day, totalling up to $3,000.00.There can be a total of 5 transaction per week, totalling up to $5,000.00."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Pay a friend",
+      "pattern": [
+        "what is pay a friend?,How do I pay  friend from the mobile app?,How much I money can I send or receive from a friend at a time?"
+      ],
+      "responses": [
+        "pay a friend within our mobile app allows you to send or request money from another person,no matter where they live or what financial institution they use(as long as it is within the United States).All you need is their mobile phone number or email address.You can also add or remove friends,view transfer history & cancel PENDING transfers.All of this is at NO cost to you!,Select pay a friend from the landing page or the hamburger menu and select New payment/Send money or Request money,With pay friend you can send or request any amount between $10.00& $500.00 per transaction for max f 5 transactions per Day, totalling up to there can be a total of no more than $1,000.00 per week. "
+      ],
+      "context_set": ""
+    }
+  ]
+}

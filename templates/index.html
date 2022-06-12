@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bank Admin Portal</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+		crossorigin="anonymous">
+		</script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+
+    <style>
+      html, body {
+      min-height: 100%;
+      }
+      body, div, form, input, select, textarea, label, p { 
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: #666;
+      line-height: 22px;
+      }
+      h1 {
+      position: absolute;
+      margin: 0;
+      font-size: 40px;
+      color: #fff;
+      z-index: 2;
+ line-height: 83px;
+      }
+      textarea {
+      width: calc(100% - 12px);
+      padding: 5px;
+      }
+      .testbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: inherit;
+      padding: 20px;
+      }
+      form {
+      width: 100%;
+      padding: 20px;
+      border-radius: 6px;
+      background: #fff;
+      box-shadow: 0 0 8px #006622; 
+      }
+      .banner {
+      position: relative;
+      height: 300px;
+      //background-image: url("/uploads/media/default/0001/02/e2502bb5e1dab7d5cc9b011c745033821aad632c.jpeg");
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      }
+      .banner::after {
+      content: "";
+      background-color: rgba(0, 0, 0, 0.2); 
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      }
+      input, select, textarea {
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      }
+      input {
+      width: calc(100% - 10px);
+      padding: 5px;
+      }
+      input[type="date"] {
+      padding: 4px 5px;
+      }
+      textarea {
+      width: calc(100% - 12px);
+      padding: 5px;
+    }
+      .item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder {
+      color:  #006622;
+      }
+      .item input:hover, .item select:hover, .item textarea:hover {
+      border: 1px solid transparent;
+      box-shadow: 0 0 3px 0  #006622;
+      color: #006622;
+      }
+      .item {
+      position: relative;
+      margin: 10px 0;
+      }
+      .item span {
+      color: red;
+      }
+      input[type="date"]::-webkit-inner-spin-button {
+      display: none;
+      }
+      .item i, input[type="date"]::-webkit-calendar-picker-indicator {
+      position: absolute;
+      font-size: 20px;
+      color: #00b33c;
+      }
+      .item i {
+      right: 1%;
+      top: 30px;
+      z-index: 1;
+      }
+ .week {
+      display:flex;
+      justfiy-content:space-between;
+      }
+      .colums {
+      display:flex;
+      justify-content:space-between;
+      flex-direction:row;
+      flex-wrap:wrap;
+      }
+      .colums div {
+      width:48%;
+      }
+      [type="date"]::-webkit-calendar-picker-indicator {
+      right: 1%;
+      z-index: 2;
+      opacity: 0;
+      cursor: pointer;
+      }
+      input[type=radio], input[type=checkbox]  {
+      display: none;
+      }
+      label.radio {
+      position: relative;
+  display: inline-block;
+      margin: 5px 20px 15px 0;
+      cursor: pointer;
+      }
+      .question span {
+      margin-left: 30px;
+      }
+      .question-answer label {
+      display: block;
+      }
+      label.radio:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      border: 2px solid #ccc;
+      }
+      input[type=radio]:checked + label:before, label.radio:hover:before {
+      border: 2px solid  #006622;
+      }
+      label.radio:after {
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: 5px;
+      width: 8px;
+      height: 4px;
+      border: 3px solid  #006622;
+      border-top: none;
+      border-right: none;
+      transform: rotate(-45deg);
+      opacity: 0;
+      }
+      input[type=radio]:checked + label:after {
+      opacity: 1;
+      }
+      .flax {
+      display:flex;
+      justify-content:space-around;
+      }
+      .btn-block {
+      margin-top: 10px;
+      text-align: center;
+      }
+      button {
+      width: 150px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px; 
+      background:  #006622;
+      font-size: 16px;
+      color: #fff;
+cursor: pointer;
+      }
+      button:hover {
+      background:  #00b33c;
+      }
+      @media (min-width: 568px) {
+      .name-item, .city-item {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      }
+      .name-item input, .name-item div {
+      width: calc(50% - 20px);
+      }
+      .name-item div input {
+      width:97%;}
+      .name-item div label {
+      display:block;
+      padding-bottom:5px;
+      }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="testbox">
+      <form id="main">
+        <div class="banner">
+          <h1 id="header">{% for value in result %}{{value}} {% endfor %}</h1>
+        </div>
+
+        <br/>
+
+        
+        <script type="text/javascript">
+
+
+          bankname = document.getElementById('header').innerHTML;
+
+          bankname = bankname.split(" ").join("")
+          lastchar = bankname.substring(bankname.length-4)
+          bankname = bankname.substring(0,bankname.length-4)
+
+          bankname = bankname + " " + lastchar
+
+
+          fetch('https://raw.githubusercontent.com/Dharsini0096/BankingBotMain/master/' + bankname + '.json')
+          .then(function(response){
+            return response.json();
+          })
+          .then(function (data){
+            var foo = document.getElementById('main') ;
+            for(i=0;i<data.intents.length;i++)
+            {
+
+              //FieldSet
+              var fieldsetB = document.createElement("fieldset");
+              fieldsetB.setAttribute("class","fset");
+
+              //Legend
+              var legendB	= document.createElement("legend");
+    
+              //Div Block for Tag
+              var divB1 = document.createElement("div");
+              divB1.setAttribute("class","divblock1");
+              divB1.setAttribute("class","item");
+
+              //Div Block for Pattern
+              var divB2 = document.createElement("div");
+              divB2.setAttribute("class","divblock2");
+              divB2.setAttribute("class","item");
+
+
+              //Div Block for Response
+              var divB3 = document.createElement("div");
+              divB3.setAttribute("class","divblock3");
+              divB3.setAttribute("class","item");
+
+
+              legendB.innerHTML = data.intents[i].tag;
+
+
+              var labelt = document.createElement('label');
+              labelt.innerHTML = "Tag  ";
+              var element = document.createElement('input');
+              element.setAttribute("type","text");
+              element.setAttribute("class","tag");
+              element.setAttribute("size","40");
+              element.setAttribute("value",data.intents[i].tag);
+              element.readOnly = true;
+              
+              var labelp = document.createElement('label');
+              labelp.innerHTML = "Pattern ";
+
+    
+              var elementp = document.createElement('textarea');
+              elementp.setAttribute('rows',5);
+              elementp.setAttribute('cols',20);
+              elementp.setAttribute("class","pattern");
+              elementp.innerHTML = data.intents[i].pattern;
+              
+    
+              var labelr = document.createElement('label');
+              labelr.innerHTML = "Responses";
+
+
+              var elementr = document.createElement('textarea');
+              elementr.setAttribute('rows',5);
+              elementr.setAttribute('cols',50);
+              elementr.setAttribute("class","response");
+              elementr.innerHTML = data.intents[i].responses;
+
+              foo.appendChild(fieldsetB);
+
+              fieldsetB.appendChild(legendB);
+              fieldsetB.appendChild(divB1);
+              fieldsetB.appendChild(divB2);
+              fieldsetB.appendChild(divB3);
+
+
+              divB1.appendChild(labelt)	;
+              divB1.appendChild(element);
+
+
+              divB2.appendChild(labelp)	;
+              divB2.appendChild(elementp);
+
+    
+              divB3.appendChild(labelr)	;
+              divB3.appendChild(elementr);
+
+            }
+          })
+          .catch(function(err){
+            console.log(err);
+          });
+
+
+          function update()
+			{
+				var jsonMainObject =
+				{
+					"intents" : []
+				}
+
+				let classlen = $('.tag').length;
+				var tagref = $('.tag');
+				var patternref = $('.pattern');
+				var responseref = $('.response');
+				for(var j = 0 ; j<classlen ; j++)
+
+				{
+
+					var tag = tagref[j].value;
+
+					var pattern = patternref[j].value;
+					pattern = pattern.split(",");
+
+
+					var response = responseref[j].value;
+					response = response.split(",");
+
+
+					var jsonObject =
+				 	{
+					"tag" : "",
+					"pattern" : "",
+					"responses" : "",
+					"context_set" : ""
+					}
+
+					jsonObject.tag = tag;
+					jsonObject.pattern = pattern;
+					jsonObject.responses = response;
+					console.log(jsonObject);
+
+					jsonMainObject.intents.push(jsonObject);
+
+				}
+
+				var str1 = JSON.stringify(jsonMainObject);
+
+				$.ajax({
+					url : "/admin/processInfo",
+					type:"POST",
+					contentType:"application/json",
+					data : str1
+				});
+			}
+
+        </script>
+      </form>
+    </div>
+
+    <div id="btn-box">
+		<button class="button " onclick="update()">UPDATE</button>
+        <button class="button">CANCEL</button>
+    </div>
+
+  </body>
+</html>

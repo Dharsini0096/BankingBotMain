@@ -1,0 +1,31 @@
+body
+{
+
+
+
+}
+
+.form-box
+{
+	width: 25rem;
+	height: 28rem;
+	background-color: rgba(0,0,0,0.6);
+	text-align: center;
+	margin-left: 35vw;
+	margin-top: 7rem;
+}
+
+form input
+{	
+	padding: 8px 30px;
+}
+.form-box h2
+{
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+.signup
+{
+	height: 38rem;
+}
+

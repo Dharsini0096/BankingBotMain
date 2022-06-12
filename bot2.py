@@ -9,6 +9,7 @@ from tensorflow.python.keras.models import model_from_json
 import random
 import json
 import pickle
+from github import Github
 
 stemmer = LancasterStemmer()
 
@@ -24,8 +25,16 @@ myChatModel = []
 def getbankname(name):
     bank = name
     global data
+
+    g = Github('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')
+    user = g.get_user()
+
+    repo = g.search_repositories("Dharsini0096/BankingBotMain")[0]
+
+
     with open(bank + ".json") as file:
         data = json.load(file)
+
 
     global words, labels, doc_x, doc_y
 
@@ -33,7 +42,7 @@ def getbankname(name):
         with open(bank + "data.pickle", "rb") as f:
             words, labels, training, output = pickle.load(f)
 
-    except Exception:
+    except FileNotFoundError:
 
         for intents in data["intents"]:
             for pattern in intents["pattern"]:
@@ -75,6 +84,12 @@ def getbankname(name):
         with open(bank + "data.pickle", "wb") as f:
             pickle.dump((words, labels, training, output), f)
 
+        with open(bank + "data.pickle", "rb") as f:
+            sample = pickle.load(f)
+            print(type(sample))
+            repo.create_file(bank + "data.pickle", "Committing", str(sample))
+            print("Pickle File created in repo")
+
     try:
         global myChatModel
         json_file = open(bank + 'chatbotmodel.json', 'r')
@@ -96,7 +111,20 @@ def getbankname(name):
         with open(bank + "chatbotmodel.json", "w") as y_file:
             y_file.write(model_json)
 
+        #json_file = open(bank + 'chatbotmodel.json', 'r')
+
+        repo.create_file(bank + "chatbotmodel.json", "Committing", str(model_json))
+        print("Model File created in repo")
+
+        weight = myChatModel.get_weights()
+        repo.create_file(bank + "chatbotmodel.h5", "Committing", str(weight))
+        print("H5 File created in repo")
+
         myChatModel.save_weights(bank + "chatbotmodel.h5")
+
+        #myChatModel.load_weights(bank + "chatbotmodel.h5")
+        #repo.create_file('master/ ' + bank + "chatbotmodel.h5", "Committing", myChatModel)
+        #print("H5 File created in repo")
         print("Saved model from disk")
 
 

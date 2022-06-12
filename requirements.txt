@@ -4,3 +4,8 @@ numpy==1.19.5
 tensorflow-cpu
 gunicorn==20.1.0
 keras==2.6.0
+
+
+PyGithub==1.55
+Jinja2==3.0.1
+mysql-connector-python==8.0.22

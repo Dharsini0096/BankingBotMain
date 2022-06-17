@@ -26,7 +26,7 @@ def getbankname(name):
     bank = name
     global data
 
-    g = Github('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')
+    g = Github('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')
     user = g.get_user()
 
     repo = g.search_repositories("Dharsini0096/BankingBotMain")[0]
